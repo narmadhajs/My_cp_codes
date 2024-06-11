@@ -1,15 +1,11 @@
 //Time Complexity: O(m+n)
 //Auxiliary Space: O(n)
 
-
-
 //code
 // A C++ program that implements Z algorithm for pattern searching
 #include<iostream>
 using namespace std;
-
 void getZarr(string str, int Z[]);
-
 void search(string text, string pattern)
 {
 	
@@ -26,7 +22,6 @@ void search(string text, string pattern)
 				<< i - pattern.length() -1 << endl;
 	}
 }
-
 void getZarr(string str, int Z[])
 {
 	int n = str.length();
@@ -46,22 +41,12 @@ void getZarr(string str, int Z[])
 		}
 		else
 		{
-			// k = i-L so k corresponds to number which
-			// matches in [L,R] interval.
+			
 			k = i-L;
-
-			// if Z[k] is less than remaining interval
-			// then Z[i] will be equal to Z[k].
-			// For example, str = "ababab", i = 3, R = 5
-			// and L = 2
 			if (Z[k] < R-i+1)
 				Z[i] = Z[k];
-
-			// For example str = "aaaaaa" and i = 2, R is 5,
-			// L is 0
 			else
 			{
-				// else start from R and check manually
 				L = i;
 				while (R<n && str[R-L] == str[R])
 					R++;
